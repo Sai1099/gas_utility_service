@@ -133,8 +133,7 @@ Then, visit:
 
 ---
 
-## Authors
-- **Your Name** - Backend Developer
+
 
 ## License
 This project is licensed under the MIT License.
