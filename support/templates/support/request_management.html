@@ -1,0 +1,8 @@
+<h1>Service Requests</h1>
+<ul>
+    {% for request in requests %}
+        <li>
+            <a href="{% url 'request_details' request.id %}">{{ request.customer_name }} - {{ request.request_type }}</a>
+        </li>
+    {% endfor %}
+</ul>
