@@ -1,5 +1,9 @@
 # gas_utility/settings.py
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'your-secret-key'
@@ -51,13 +55,13 @@ WSGI_APPLICATION = 'gas_utility.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'gas_utility_db',
+        'NAME': os.getenv('DB_NAME'),
         'CLIENT': {
-            'host': 'mongodb+srv://sai1099:enbu@cluster0.pb5tgnt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-            'username': 'sai1099',
-            'password': 'enbu',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1'
+            'host': os.getenv('DB_HOST'),
+            'username': os.getenv('DB_USERNAME'),
+            'password': os.getenv('DB_PASSWORD'),
+            'authSource': os.getenv('DB_AUTH_SOURCE'),
+            'authMechanism': os.getenv('DB_AUTH_MECHANISM')
         }
     }
 }
